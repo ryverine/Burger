@@ -4,8 +4,6 @@ var connection = require("./connection.js");
 // The ? signs are for swapping out other values
 
 
-updateOne()
-
 var orm = {
     selectAll: function(tableInput) 
     {

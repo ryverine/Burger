@@ -1,13 +1,15 @@
 
 var mysql = require("mysql");
-var mysqlpass = require("./mysqlpass.js");
 
-var connection = mysql.createConnection({
-  port: 3306,
-  host: "localhost",
-  user: "root",
-  password: mysqlpass.mysql_pass,
-  database: "burgers_db"
+var mysqlpass = require("../mysqlpass.js");
+
+var connection = mysql.createConnection(
+{
+    port: 3306,
+    host: "localhost",
+    user: "root",
+    password: mysqlpass.password.mysql_pass,
+    database: "burgers_db"
 });
 
 connection.connect(function(err) 

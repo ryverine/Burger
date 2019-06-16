@@ -1,7 +1,7 @@
 
-var mysql = require("express");
+var express = require("express");
 
-var burger = require("./models/burger.js");
+var burger = require("../models/burger.js");
 
 // app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 // app.set("view engine", "handlebars");

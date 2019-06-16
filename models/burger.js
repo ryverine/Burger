@@ -1,6 +1,6 @@
-var orm = require("./config/orm.js");
+var orm = require("../config/orm.js");
 
-var burgers = {
+var burger = {
     getBurgers: function()
     {
         orm.selectAll("burgers");
