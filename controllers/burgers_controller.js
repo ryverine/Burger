@@ -3,8 +3,7 @@ var express = require("express");
 
 var burger = require("../models/burger.js");
 
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+
 
 module.exports = function(app) 
 {
@@ -18,8 +17,12 @@ module.exports = function(app)
         // res.json(burger.getBurgers());
         // console.log();
 
-        var data = burger.getBurgers();
-        console.log("data.length = " + data.length);
+        var data = burger.getBurgers(function(result)
+        {
+            console.log("burgers_controller result", result);
+        });
+        
+        // console.log("res = ", res);
 
     });
 

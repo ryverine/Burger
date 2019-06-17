@@ -1,14 +1,14 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-    getBurgers: function()
+    getBurgers: function(cb)
     {
         //console.log("orm.selectAll('burgers').length = " + orm.selectAll("burgers").length);
         orm.selectAll("burgers", function(result)
         {
             var data = result;
             // data is an array of objects
-            return data;
+            cb(data);
         });
     },
     addBurger: function(burgerName)
