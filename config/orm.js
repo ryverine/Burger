@@ -5,13 +5,15 @@ var connection = require("./connection.js");
 
 
 var orm = {
-    selectAll: function(tableInput) 
+    selectAll: function(tableInput, cb) 
     {
         var queryString = "SELECT * FROM ??";
         connection.query(queryString, tableInput, function(err, result) 
         {
             if (err) throw err;
-            console.log(result);
+            //console.log("SELECT * FROM ??");
+            //console.log("selectAll: result.length = " + result.length);
+            cb(result);
         });
     },
     insertOne: function(tableInput,burgerNameInput,devouredInput) 
@@ -20,7 +22,9 @@ var orm = {
         connection.query(queryString, [tableInput,burgerNameInput,devouredInput], function(err, result) 
         {
             if (err) throw err;
+            console.log("INSERT INTO ?? (burger_name, devoured) VALUES (?,?)");
             console.log(result);
+            return result;
         });
     },
     updateOne: function(tableInput,colChangeInput,dataChangeInput,colMatchInput,dataMatchInput) 
@@ -29,7 +33,9 @@ var orm = {
         connection.query(queryString, [tableInput,colChangeInput, dataChangeInput,colMatchInput,dataMatchInput], function(err, result) 
         {
             if (err) throw err;
+            console.log("UPDATE ?? SET ?? = ? WHERE ?? = ?");
             console.log(result);
+            return result;
         });
     }
 };

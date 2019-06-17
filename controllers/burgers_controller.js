@@ -11,9 +11,16 @@ module.exports = function(app)
     // home
     app.get("/api/all", function(req, res) 
     {
-        //res.render("dog", animals[0]);
+        // res.render("dog", animals[0]);
         console.log("/api/all");
-       //  getBurgers: function()
+        //  getBurgers: function()
+        
+        // res.json(burger.getBurgers());
+        // console.log();
+
+        var data = burger.getBurgers();
+        console.log("data.length = " + data.length);
+
     });
 
     app.post("/api/add", function(req, res) 

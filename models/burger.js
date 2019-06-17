@@ -3,19 +3,25 @@ var orm = require("../config/orm.js");
 var burger = {
     getBurgers: function()
     {
-        orm.selectAll("burgers");
+        //console.log("orm.selectAll('burgers').length = " + orm.selectAll("burgers").length);
+        orm.selectAll("burgers", function(result)
+        {
+            var data = result;
+            // data is an array of objects
+            return data;
+        });
     },
     addBurger: function(burgerName)
     {
-        orm.insertOne("burgers", burgerName, false);
+        return orm.insertOne("burgers", burgerName, false);
     },
     updateBurgerById: function(devouredValue, burgerID)
     {
-        orm.updateOne("burgers","devoured",devouredValue, "id", burgerID);
+        return orm.updateOne("burgers","devoured",devouredValue, "id", burgerID);
     },
     updateBurgerByName: function(devouredValue, burgerName)
     {
-        orm.updateOne("burgers", "devoured", devouredValue, "burger_name", burgerName);
+        return orm.updateOne("burgers", "devoured", devouredValue, "burger_name", burgerName);
     }
 };
 
