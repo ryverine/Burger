@@ -6,6 +6,14 @@
     <img src="../public/assets/img/burgie_real_crop.png">
 </p>
 
+
+{{#each burgers}}
+    <p>ID: {{id}}</p>
+    <p>Name: {{burger_name}}</p>
+    <p>Devoured: {{devoured}}</p>
+    <hr>
+{{/each}}
+
 <!-- Pass in data from server.js 
 <ul>
   {{#each quotes}}
