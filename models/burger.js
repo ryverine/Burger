@@ -6,9 +6,7 @@ var burger = {
         //console.log("orm.selectAll('burgers').length = " + orm.selectAll("burgers").length);
         orm.selectAll("burgers", function(result)
         {
-            var data = result;
-            // data is an array of objects
-            cb(data);
+           cb(result);
         });
     },
     addBurger: function(burgerName)

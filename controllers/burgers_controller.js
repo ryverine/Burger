@@ -1,7 +1,4 @@
-
 var express = require("express");
-var exphbs = require("express-handlebars");
-
 var burger = require("../models/burger.js");
 
 module.exports = function(app) 
@@ -10,15 +7,36 @@ module.exports = function(app)
     app.get("/api/all", function(req, res) 
     {
         console.log("/api/all");
-      
+        
+        /*var burgerData = [
+            {
+                id: "test001",
+                burger_name: "burger001",
+                devoured: false
+            },
+            {
+                id: "test002",
+                burger_name: "burger002",
+                devoured: false
+            },
+            {
+                id: "test003",
+                burger_name: "burger003",
+                devoured: false
+            }
+        ];
+
+        res.render("index", { burgers: burgerData });*/
+
+
+        
         burger.getBurgers(function(result)
         {
             console.log("burgers_controller result", result);
-            // data = result;
+            
             res.render("index", { burgers: result });
         });
-
-        //console.log("burgers_controller -> /api/all -> data", data);
+        
 
         /*
         app.get("/icecreams", function(req, res) 
@@ -46,12 +64,12 @@ module.exports = function(app)
         // updateBurgerByName: function(devouredValue, burgerName)
     });
 
-    app.get("*", function(req, res) 
+    /*app.get("/", function(req, res) 
     {
         console.log("*");
         // res.render("dog", animals[0]);
         // res.sendFile(path.resolve("./views/survey.html"));
-    });
+    });*/
   
   };
 
