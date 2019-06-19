@@ -41,3 +41,22 @@ var orm = {
 };
 
 module.exports = orm;
+
+
+
+/*
+
+// Create a new plan
+app.post("/api/movies", function(req, res) {
+  connection.query("INSERT INTO moviess (movie) VALUES (?)", [req.body.plan], function(err, result) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    // Send back the ID of the new plan
+    res.json({ id: result.insertId });
+    console.log({ id: result.insertId });
+  });
+});
+
+*/

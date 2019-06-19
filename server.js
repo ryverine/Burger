@@ -1,9 +1,13 @@
 require("dotenv").config();
-
+var path = require("path");
 var express = require("express");
 var exphbs = require("express-handlebars");
 
 var app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+console.log("_dirname = " + __dirname);
 
 var PORT = process.env.PORT || 8080;
 

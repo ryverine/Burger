@@ -3,58 +3,46 @@ var burger = require("../models/burger.js");
 
 module.exports = function(app) 
 {
-    // home
-    app.get("/api/all", function(req, res) 
+    app.get("/", function(req, res) 
     {
-        console.log("/api/all");
-        
-        /*var burgerData = [
-            {
-                id: "test001",
-                burger_name: "burger001",
-                devoured: false
-            },
-            {
-                id: "test002",
-                burger_name: "burger002",
-                devoured: false
-            },
-            {
-                id: "test003",
-                burger_name: "burger003",
-                devoured: false
-            }
-        ];
-
-        res.render("index", { burgers: burgerData });*/
-
-
-        
+        console.log("/index");
         burger.getBurgers(function(result)
         {
-            console.log("burgers_controller result", result);
-            
             res.render("index", { burgers: result });
         });
-        
-
-        /*
-        app.get("/icecreams", function(req, res) 
-        {
-            res.render("ics", { ics: icecreams });
-        });
-        */
-        
-        // console.log("res = ", res);
-
     });
 
     app.post("/api/add", function(req, res) 
     {
         //res.render("dog", animals[0]);
         console.log("/api/add");
-        // addBurger: function(burgerName)
+        var newBurger = req.body;
+
+        burger.addBurger(newBurger);
+
     });
+
+    /*
+    router.post("/api/friends", function(req, res) 
+{
+    var newFriend = req.body;
+
+    for (var i = 0; i < friendsList.length; i++)
+    {
+        console.log("friendsList["+i+"]" + "\n" + JSON.stringify(friendsList[i]));
+    }
+
+    for ( var j = 0; j < newFriend.scores.length; j++)
+    {
+        var tmpInt = Number.parseInt(newFriend.scores[j]);
+        newFriend.scores[j] = tmpInt;
+    }
+
+    friends.addFriend(newFriend);
+    res.json(newFriend);
+});
+    
+    */
 
     app.put("/api/:burger", function(req, res) 
     {

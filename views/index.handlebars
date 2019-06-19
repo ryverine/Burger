@@ -2,17 +2,83 @@
 
 <p>index.handlebars</p>
 
-<p>
-    <img src="../public/assets/img/burgie_real_crop.png">
-</p>
+<!--
 
 
-{{#each burgers}}
-    <p>ID: {{id}}</p>
-    <p>Name: {{burger_name}}</p>
-    <p>Devoured: {{devoured}}</p>
-    <hr>
-{{/each}}
+1) localhost:3000/index
+
+page with burger image and eat-da-burger title
+
+textbox to enter name of burger
+
+submit button
+
+if there are burgers they should display above textbox.
+
+
+2) click submit 
+
+add to burger list
+
+"devour" button for each burger
+
+
+3) click devour button
+
+remove burger from list
+
+add to "devoured" list on opposite side of page
+
+
+=======
+
+-->
+
+
+<div class="container">
+
+    <img src="../../public/assets/img/burgie_real_crop.png">
+
+    <div>EAT-DA-BURGER</div>
+
+    <div class="row">
+        <div class="col-4">
+            <p>List of Burgers</p>
+            {{#each burgers}}
+                <p>ID: {{id}}</p>
+                <p>Name: {{burger_name}}</p>
+                <p>Devoured: {{devoured}}</p>
+                <hr>
+            {{/each}}
+        </div>
+        <div class="col-4">CENTER</div>
+        <div class="col-4">RIGHT</div>
+    </div>
+
+    <div class="row">
+	<forms>		
+        <div><strong>Name a Burger:</strong></div>
+        <div><input type="text" id="name"></div>
+        <div>
+            <input type="submit" id="btn-submit" class="btn btn-primary" value="Add Burger">
+        </div>
+    </form>
+    </div>
+
+    <!-- Link to a page via route
+        <a href="/home"><button type="button" class="btn btn-primary">Home</button></a> -->
+
+</div> <!-- /container -->
+
+
+
+
+
+
+
+
+
+
 
 <!-- Pass in data from server.js 
 <ul>
