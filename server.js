@@ -5,7 +5,7 @@ var exphbs = require("express-handlebars");
 
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 console.log("_dirname = " + __dirname);
 
