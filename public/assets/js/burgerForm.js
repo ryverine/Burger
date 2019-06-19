@@ -9,10 +9,7 @@ $(document).ready(function()
     
         for(var i = 0; i < listOfBurgers.length; i++)
         {
-       
             var burgerName = $(listOfBurgers[i]).contents().text();
-
-            //alert("burgerName = " + burgerName);
 
             var button = $("<input>");
             button.attr("type", "button");
@@ -21,7 +18,6 @@ $(document).ready(function()
             button.attr("value", "Devour It!");
 
             $(listOfBurgers[i]).append(button);
-    
         }
     }
 
