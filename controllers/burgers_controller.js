@@ -5,11 +5,8 @@ module.exports = function(app)
 {
     app.get("/", function(req, res) 
     {
-        //console.log("/index");
         burger.getBurgers(function(result)
         {
-            console.log("GET RESULT", result);
-
             var burgerData = [];
             var devouredData = [];
 
@@ -17,17 +14,14 @@ module.exports = function(app)
             {
                 if(result[i].devoured === 0)
                 {
-                    //console.log("result[" + i + "].devoured === 0");
                     burgerData.push(result[i]);
                 }
                 else
                 {
-                    //console.log("result[" + i + "].devoured === 1");
                     devouredData.push(result[i]);
                 }
             }
 
-            //res.render("index", { burgers: result });
             res.render("index", { burgers: burgerData, devoured: devouredData });
         });
     });
@@ -52,7 +46,8 @@ module.exports = function(app)
         //console.log("newBurger", newBurger);
         burger.addBurger(newBurger, function(result)
         {
-            // res.json(result);
+            // return res.json(result);
+            res.json(result);
         });
         
         /*, function(result){
@@ -105,8 +100,11 @@ module.exports = function(app)
         // console.log("id = " + id + "; typeof id = " + typeof id);
         // console.log("devoured = " + devoured + "; typeof devoured = " + typeof devoured);
 
-        burger.updateBurgerById(devoured, id);
-        
+        burger.updateBurgerById(devoured, id, function(result)
+        {
+            // return res.json(result);
+            res.json(result);
+        });
     });
 
     /*app.get("/", function(req, res) 

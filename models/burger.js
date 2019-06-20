@@ -16,9 +16,12 @@ var burger = {
             cb(result);
         });
     },
-    updateBurgerById: function(devouredValue, burgerID)
+    updateBurgerById: function(devouredValue, burgerID, cb)
     {
-        return orm.updateOne("burgers","devoured",devouredValue, "id", burgerID);
+        orm.updateOne("burgers","devoured",devouredValue, "id", burgerID, function(result)
+        {
+            cb(result);
+        });
     }
 };
 

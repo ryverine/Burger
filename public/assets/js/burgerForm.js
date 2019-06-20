@@ -29,6 +29,7 @@ $(document).ready(function()
         }
     }
 
+
     function refreshBurgerList()
     {
         // currentBurgers = [];
@@ -67,9 +68,8 @@ $(document).ready(function()
                     data: newBurger
                 }).then(function(data) 
                 {
-                    console.log("created new burger");
-
-                    console.log("data", data);
+                    // console.log("created new burger");
+                    // console.log("data", data);
                     
                     // Reload the page to get the updated list
                     location.reload();
@@ -94,11 +94,11 @@ $(document).ready(function()
             data: burger
         }).then(function(data) 
         {
-            console.log("data", data);
+            console.log("/api/burgers/burgerID -> data", data);
             // Reload the page to get the updated list
             location.reload();
+            // location.reload(true);
         });
-
     });
 
 });

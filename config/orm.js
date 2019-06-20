@@ -28,7 +28,7 @@ var orm = {
             cb(result);
         });
     },
-    updateOne: function(tableInput,colChangeInput,dataChangeInput,colMatchInput,dataMatchInput) 
+    updateOne: function(tableInput,colChangeInput,dataChangeInput,colMatchInput,dataMatchInput, cb) 
     {
         var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
         connection.query(queryString, [tableInput,colChangeInput, dataChangeInput,colMatchInput,dataMatchInput], function(err, result) 
@@ -36,7 +36,8 @@ var orm = {
             if (err) throw err;
             // console.log("UPDATE ?? SET ?? = ? WHERE ?? = ?");
             // console.log(result);
-            return result;
+            // return result;
+            cb(result);
         });
     }
 };
