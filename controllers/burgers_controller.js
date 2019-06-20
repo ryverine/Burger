@@ -12,14 +12,27 @@ module.exports = function(app)
         });
     });
 
-    app.post("/api/add", function(req, res) 
+    /*
+    app.get("/api/burgers", function(req, res) 
+    {
+        console.log("/index");
+        burger.getBurgers(function(result)
+        {
+            //res.render("index", { burgers: result });
+            res.json(result);
+        });
+    });
+    */
+
+    app.post("/api/burgers", function(req, res) 
     {
         //res.render("dog", animals[0]);
-        console.log("/api/add");
-        var newBurger = req.body;
-
-        burger.addBurger(newBurger);
-
+        console.log("/api/burgers");
+        var newBurger = req.body.burger_name;
+        console.log("newBurger", newBurger);
+        burger.addBurger(newBurger);/*, function(result){
+            res.json(result);
+        });*/
     });
 
     /*

@@ -11,7 +11,7 @@ var burger = {
     },
     addBurger: function(burgerName)
     {
-        return orm.insertOne("burgers", burgerName, false);
+        orm.insertOne("burgers", burgerName, false);
     },
     updateBurgerById: function(devouredValue, burgerID)
     {
