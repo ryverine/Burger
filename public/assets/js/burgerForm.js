@@ -11,15 +11,16 @@ $(document).ready(function()
     
         for(var i = 0; i < listOfBurgers.length; i++)
         {
-            var burgerName = $(listOfBurgers[i]).contents().text();
+            var burgerName = $(listOfBurgers[i]).contents().text().trim();
 
             currentBurgers.push(burgerName);
 
-            var button = $("<input>");
+            var button = $("<button>");
             button.attr("type", "button");
             button.attr("name", burgerName);
             button.attr("class", "devourButton");
-            button.attr("value", "Devour It!");
+            //button.attr("value", "Devour It!");
+            button.text("Devour It!");
 
             $(listOfBurgers[i]).append(button);
         }
@@ -37,6 +38,7 @@ $(document).ready(function()
         event.preventDefault();
 
         var burgerName = $("#newBurger").val().trim();
+        $("#newBurger").val("");
 
         if(burgerName != "" && burgerName.length > 1)
         {
@@ -64,10 +66,12 @@ $(document).ready(function()
                 {
                     type: "POST",
                     data: newBurger
-                }).then(function() 
+                }).then(function(data) 
                 {
-                    // console.log("created new burger");
-                    $("#newBurger").val("");
+                    console.log("created new burger");
+
+                    console.log("data", data);
+                    
                     // Reload the page to get the updated list
                     location.reload();
                 });
@@ -78,7 +82,12 @@ $(document).ready(function()
     });
 
 
-
+	$(document).on("click", "button.devourButton", function()
+	{
+        console.log("DEVOUR BUTTON CLICKED!" + "\n" +
+        "Button Name = " + $(this).attr("name"));
+        // "Button ID = " + $(this).attr("id")  + "\n" +
+    });
 
 
     /*

@@ -9,9 +9,12 @@ var burger = {
            cb(result);
         });
     },
-    addBurger: function(burgerName)
+    addBurger: function(burgerName, cb)
     {
-        orm.insertOne("burgers", burgerName, false);
+        orm.insertOne("burgers", burgerName, false, function(result)
+        {
+            cb(result);
+        });
     },
     updateBurgerById: function(devouredValue, burgerID)
     {

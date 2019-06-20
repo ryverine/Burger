@@ -5,7 +5,7 @@ module.exports = function(app)
 {
     app.get("/", function(req, res) 
     {
-        console.log("/index");
+        //console.log("/index");
         burger.getBurgers(function(result)
         {
             res.render("index", { burgers: result });
@@ -27,10 +27,13 @@ module.exports = function(app)
     app.post("/api/burgers", function(req, res) 
     {
         //res.render("dog", animals[0]);
-        console.log("/api/burgers");
+        //console.log("/api/burgers");
         var newBurger = req.body.burger_name;
-        console.log("newBurger", newBurger);
-        burger.addBurger(newBurger);/*, function(result){
+        //console.log("newBurger", newBurger);
+        burger.addBurger(newBurger, function(result)
+        {
+            res.json(result);
+        });/*, function(result){
             res.json(result);
         });*/
     });

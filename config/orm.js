@@ -16,15 +16,16 @@ var orm = {
             cb(result);
         });
     },
-    insertOne: function(tableInput,burgerNameInput,devouredInput) 
+    insertOne: function(tableInput,burgerNameInput,devouredInput, cb) 
     {
         var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (?,?)";
         connection.query(queryString, [tableInput,burgerNameInput,devouredInput], function(err, result) 
         {
             if (err) throw err;
-            console.log("INSERT INTO ?? (burger_name, devoured) VALUES (?,?)");
-            console.log(result);
-            return result;
+            // console.log("INSERT INTO ?? (burger_name, devoured) VALUES (?,?)");
+            // console.log(result);
+            //return result;
+            cb(result);
         });
     },
     updateOne: function(tableInput,colChangeInput,dataChangeInput,colMatchInput,dataMatchInput) 
