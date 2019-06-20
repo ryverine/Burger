@@ -39,7 +39,7 @@ add to "devoured" list on opposite side of page
 
     <div class="row">
         <div class="col-3">
-            <p>List of Burgers</p>
+            <h3>List of Burgers</h3>
             {{#each burgers}}
             <div class="burgerData" id="div-burger-{{id}}" data-devoured="{{devoured}}">
                 <!-- <p>ID: {{id}}</p> -->
@@ -50,14 +50,23 @@ add to "devoured" list on opposite side of page
         </div>
         <div class="col-4">
           <forms>		
-            <div><strong>Name a Burger:</strong></div>
+            <h3>Name a Burger</h3>
             <div><input type="text" id="newBurger"></div>
             <div>
                 <input type="submit" id="btn-submit" class="btn btn-primary" value="Add Burger">
             </div>
           </form>
         </div>
-        <div class="col-3">RIGHT</div>
+        <div class="col-3">
+          <h3>Burgers Eaten</h3>
+            {{#each devoured}}
+              <div class="devouredData" id="div-devoured-{{id}}" data-devoured="{{devoured}}">
+                  <!-- <p>ID: {{id}}</p> -->
+                  <p class="devouredName">{{burger_name}}</p>
+                  <!-- <p>Devoured: {{devoured}}</p> -->
+              </div>
+            {{/each}}
+        </div>
     </div>
 
     <!-- Link to a page via route

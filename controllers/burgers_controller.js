@@ -8,7 +8,27 @@ module.exports = function(app)
         //console.log("/index");
         burger.getBurgers(function(result)
         {
-            res.render("index", { burgers: result });
+            console.log("GET RESULT", result);
+
+            var burgerData = [];
+            var devouredData = [];
+
+            for (var i = 0; i < result.length; i++)
+            {
+                if(result[i].devoured === 0)
+                {
+                    //console.log("result[" + i + "].devoured === 0");
+                    burgerData.push(result[i]);
+                }
+                else
+                {
+                    //console.log("result[" + i + "].devoured === 1");
+                    devouredData.push(result[i]);
+                }
+            }
+
+            //res.render("index", { burgers: result });
+            res.render("index", { burgers: burgerData, devoured: devouredData });
         });
     });
 
@@ -32,8 +52,10 @@ module.exports = function(app)
         //console.log("newBurger", newBurger);
         burger.addBurger(newBurger, function(result)
         {
-            res.json(result);
-        });/*, function(result){
+            // res.json(result);
+        });
+        
+        /*, function(result){
             res.json(result);
         });*/
     });
@@ -80,10 +102,10 @@ module.exports = function(app)
             devoured = false;
         }
 
-        console.log("id = " + id + "; typeof id = " + typeof id);
-        console.log("devoured = " + devoured + "; typeof devoured = " + typeof devoured);
+        // console.log("id = " + id + "; typeof id = " + typeof id);
+        // console.log("devoured = " + devoured + "; typeof devoured = " + typeof devoured);
 
-        // burger.updateBurgerById: function(devoured, id);
+        burger.updateBurgerById(devoured, id);
         
     });
 

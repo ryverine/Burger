@@ -16,10 +16,8 @@ $(document).ready(function()
             currentBurgers.push(burgerName);
 
             var divID = $(listOfBurgers[i]).attr("id");
-            console.log("divID = " + divID);
 
             var burgerID = divID.slice(11);
-            console.log("burgerID = " + burgerID);
        
             var button = $("<button>");
             button.attr("type", "button");
@@ -83,12 +81,7 @@ $(document).ready(function()
 
 	$(document).on("click", "button.devourButton", function()
 	{
-        console.log("DEVOUR BUTTON CLICKED!" + "\n" +
-        "Button ID = " + $(this).attr("id"));
-        // "Button ID = " + $(this).attr("id")  + "\n" +
-
         var buttonID = $(this).attr("id");
-        
         var burgerID = buttonID.slice(11);
         
         var burger = {
@@ -106,36 +99,7 @@ $(document).ready(function()
             location.reload();
         });
 
-
-
-
-
-
     });
-
-
-    /*
-				function addFriend(newFriend)
-				{
-					$.post("/api/friends", newFriend).then(function(data) 
-					{
-						$("#name").val("");
-						photo: $("#imgUrl").val("");
-						$("#ans-01").val("");
-						$("#ans-02").val("");
-						$("#ans-03").val("");
-						$("#ans-04").val("");
-						$("#ans-05").val("");
-						$("#ans-06").val("");
-						$("#ans-07").val("");
-						$("#ans-08").val("");
-						$("#ans-09").val("");
-						$("#ans-10").val("");
-
-						alert("Thank you!" + "\n" + "Survey submitted.");
-					});
-				}
-    */
 
 });
 

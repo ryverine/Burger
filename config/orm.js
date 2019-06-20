@@ -34,8 +34,8 @@ var orm = {
         connection.query(queryString, [tableInput,colChangeInput, dataChangeInput,colMatchInput,dataMatchInput], function(err, result) 
         {
             if (err) throw err;
-            console.log("UPDATE ?? SET ?? = ? WHERE ?? = ?");
-            console.log(result);
+            // console.log("UPDATE ?? SET ?? = ? WHERE ?? = ?");
+            // console.log(result);
             return result;
         });
     }
