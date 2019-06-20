@@ -19,10 +19,6 @@ var burger = {
     updateBurgerById: function(devouredValue, burgerID)
     {
         return orm.updateOne("burgers","devoured",devouredValue, "id", burgerID);
-    },
-    updateBurgerByName: function(devouredValue, burgerName)
-    {
-        return orm.updateOne("burgers", "devoured", devouredValue, "burger_name", burgerName);
     }
 };
 

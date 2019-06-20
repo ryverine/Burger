@@ -60,12 +60,31 @@ module.exports = function(app)
     
     */
 
-    app.put("/api/:burger", function(req, res) 
+    app.put("/api/burgers/:id", function(req, res) 
     {
         //res.render("dog", animals[0]);
-        console.log("/api/:burger");
-        // updateBurgerById: function(devouredValue, burgerID)
-        // updateBurgerByName: function(devouredValue, burgerName)
+        console.log("/api/burgers/:id");
+        
+        var idStr = req.params.id;
+        var id = Number.parseInt(idStr);
+
+        var devouredStr = req.body.devoured;
+        var devoured;
+
+        if(devouredStr.toLowerCase() === 'true')
+        {
+            devoured = true;
+        }
+        else
+        {
+            devoured = false;
+        }
+
+        console.log("id = " + id + "; typeof id = " + typeof id);
+        console.log("devoured = " + devoured + "; typeof devoured = " + typeof devoured);
+
+        // burger.updateBurgerById: function(devoured, id);
+        
     });
 
     /*app.get("/", function(req, res) 

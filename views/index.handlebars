@@ -41,7 +41,7 @@ add to "devoured" list on opposite side of page
         <div class="col-3">
             <p>List of Burgers</p>
             {{#each burgers}}
-            <div class="burgerData">
+            <div class="burgerData" id="div-burger-{{id}}" data-devoured="{{devoured}}">
                 <!-- <p>ID: {{id}}</p> -->
                 <p class="burgerName">{{burger_name}}</p>
                 <!-- <p>Devoured: {{devoured}}</p> -->

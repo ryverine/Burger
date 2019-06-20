@@ -15,11 +15,16 @@ $(document).ready(function()
 
             currentBurgers.push(burgerName);
 
+            var divID = $(listOfBurgers[i]).attr("id");
+            console.log("divID = " + divID);
+
+            var burgerID = divID.slice(11);
+            console.log("burgerID = " + burgerID);
+       
             var button = $("<button>");
             button.attr("type", "button");
-            button.attr("name", burgerName);
+            button.attr("id", "btn-burger-" + burgerID);
             button.attr("class", "devourButton");
-            //button.attr("value", "Devour It!");
             button.text("Devour It!");
 
             $(listOfBurgers[i]).append(button);
@@ -54,14 +59,10 @@ $(document).ready(function()
 
             if(!burgerExists)
             {
-                var newBurger = {burger_name: burgerName};
-                /*$.post("/api/burgers", newBurger).then(function(data) 
-                {
-                    $("#newBurger").val("");
-                    // REFRESH BURGER LIST
-                });*/
+                currentBurgers.push(burgerName);
 
-                  // Send the POST request.
+                var newBurger = {burger_name: burgerName};
+
                 $.ajax("/api/burgers", 
                 {
                     type: "POST",
@@ -77,16 +78,39 @@ $(document).ready(function()
                 });
             }
         }
-
-        //alert("New Burger = " + burgerName);
     });
 
 
 	$(document).on("click", "button.devourButton", function()
 	{
         console.log("DEVOUR BUTTON CLICKED!" + "\n" +
-        "Button Name = " + $(this).attr("name"));
+        "Button ID = " + $(this).attr("id"));
         // "Button ID = " + $(this).attr("id")  + "\n" +
+
+        var buttonID = $(this).attr("id");
+        
+        var burgerID = buttonID.slice(11);
+        
+        var burger = {
+            devoured: true
+        };
+
+        $.ajax("/api/burgers/" + burgerID, 
+        {
+            type: "PUT",
+            data: burger
+        }).then(function(data) 
+        {
+            console.log("data", data);
+            // Reload the page to get the updated list
+            location.reload();
+        });
+
+
+
+
+
+
     });
 
 
