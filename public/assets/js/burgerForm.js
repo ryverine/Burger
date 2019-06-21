@@ -11,21 +11,7 @@ $(document).ready(function()
     
         for(var i = 0; i < listOfBurgers.length; i++)
         {
-            // var burgerName = $(listOfBurgers[i]).contents().text().trim();
-
-            // TRY THIS
-            // https://api.jquery.com/find/
-            // 
-            
-            
-
             var burgerName  = $(listOfBurgers[i]).find("p.burgerName").text().trim();
-
-            //alert("BURGER NAME 2: " + burgerName2);
-
-            
-
-            // BETTER TO APPEND BUTTON TO <P>, not <DIV>
 
             currentBurgers.push(burgerName);
 
@@ -40,17 +26,8 @@ $(document).ready(function()
             button.addClass("devourButton");
             button.text("Devour It!");
 
-            // $(listOfBurgers[i]).append(button);
-
             $(listOfBurgers[i]).find("p.burgerName").prepend(button);
         }
-    }
-
-
-    function refreshBurgerList()
-    {
-        // currentBurgers = [];
-        // createDevourButtons();
     }
 
 
@@ -85,10 +62,6 @@ $(document).ready(function()
                     data: newBurger
                 }).then(function(data) 
                 {
-                    // console.log("created new burger");
-                    // console.log("data", data);
-                    
-                    // Reload the page to get the updated list
                     location.reload();
                 });
             }
@@ -111,10 +84,7 @@ $(document).ready(function()
             data: burger
         }).then(function(data) 
         {
-            console.log("/api/burgers/burgerID -> data", data);
-            // Reload the page to get the updated list
             location.reload();
-            // location.reload(true);
         });
     });
 

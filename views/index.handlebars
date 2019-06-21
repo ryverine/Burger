@@ -11,9 +11,7 @@
             <h2>Burgers</h2>
             {{#each burgers}}
             <div class="burgerData" id="div-burger-{{id}}" data-devoured="{{devoured}}">
-                <!-- <p>ID: {{id}}</p> -->
                 <p class="burgerName">{{burger_name}}</p>
-                <!-- <p>Devoured: {{devoured}}</p> -->
             </div>
             {{/each}}
         </div>
@@ -30,58 +28,9 @@
           <h2>Burgers Eaten</h2>
             {{#each devoured}}
               <div class="devouredData" id="div-devoured-{{id}}" data-devoured="{{devoured}}">
-                  <!-- <p>ID: {{id}}</p> -->
                   <p class="devouredName">{{burger_name}}</p>
-                  <!-- <p>Devoured: {{devoured}}</p> -->
               </div>
             {{/each}}
         </div>
     </div>
-
-    <!-- Link to a page via route
-        <a href="/home"><button type="button" class="btn btn-primary">Home</button></a> -->
-
 </div> <!-- /container -->
-
-
-
-
-
-
-
-
-
-
-
-<!-- Pass in data from server.js 
-<ul>
-  {{#each quotes}}
-  	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Quote:</span> {{this.quote}}</p>
-      <p><span class="label">Author:</span> {{this.author}}</p>
-
-      <button data-id="{{this.id}}" class="delquote">Delete</button>
-
-      <a href="/{{this.id}}">Update this quote</a>
-  	</li>
-  {{/each}}
-</ul>
-
-<h2>Add a Quote</h2>
-
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="auth">Author:</label>
-    <input type="text" id="auth" name="author">
-  </div>
-
-  <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-  </div>
-
-  <button type="submit">Add Quote</button>
-</form>
--->

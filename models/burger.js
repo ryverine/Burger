@@ -3,7 +3,6 @@ var orm = require("../config/orm.js");
 var burger = {
     getBurgers: function(cb)
     {
-        //console.log("orm.selectAll('burgers').length = " + orm.selectAll("burgers").length);
         orm.selectAll("burgers", function(result)
         {
            cb(result);
