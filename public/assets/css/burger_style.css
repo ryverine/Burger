@@ -1,9 +1,54 @@
 
+/* 
+#55251b brown
+#dbbd13 yellow
+#ba4a33 orange
+*/
+
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #55251b; 
+    font-weight: bold;
+}
+
 body{
     background-color: goldenrod;
 }
 
-div{
+/*div{
     border: 1px solid blue;
     margin: 2px;
+}*/
+
+img{
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+
+h2{
+    text-align: center;
+}
+
+#header{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#btn-submit{
+    background-color: #ba4a33;
+    color: #55251b; 
+    font-weight: bold;
+    margin: 5px;
+}
+
+.devourButton{
+    margin: 2px;
+    color: #dbbd13; 
+    font-weight: bold;
+    background-color: #55251b; 
+}
+
+.burgerName{
+    border-bottom: 2px solid #ba4a33;
 }

@@ -97,12 +97,8 @@ module.exports = function(app)
             devoured = false;
         }
 
-        // console.log("id = " + id + "; typeof id = " + typeof id);
-        // console.log("devoured = " + devoured + "; typeof devoured = " + typeof devoured);
-
         burger.updateBurgerById(devoured, id, function(result)
         {
-            // return res.json(result);
             res.json(result);
         });
     });

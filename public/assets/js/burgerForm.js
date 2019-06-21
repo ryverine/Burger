@@ -11,7 +11,21 @@ $(document).ready(function()
     
         for(var i = 0; i < listOfBurgers.length; i++)
         {
-            var burgerName = $(listOfBurgers[i]).contents().text().trim();
+            // var burgerName = $(listOfBurgers[i]).contents().text().trim();
+
+            // TRY THIS
+            // https://api.jquery.com/find/
+            // 
+            
+            
+
+            var burgerName  = $(listOfBurgers[i]).find("p.burgerName").text().trim();
+
+            //alert("BURGER NAME 2: " + burgerName2);
+
+            
+
+            // BETTER TO APPEND BUTTON TO <P>, not <DIV>
 
             currentBurgers.push(burgerName);
 
@@ -22,10 +36,13 @@ $(document).ready(function()
             var button = $("<button>");
             button.attr("type", "button");
             button.attr("id", "btn-burger-" + burgerID);
-            button.attr("class", "devourButton");
+            button.attr("class", "btn");
+            button.addClass("devourButton");
             button.text("Devour It!");
 
-            $(listOfBurgers[i]).append(button);
+            // $(listOfBurgers[i]).append(button);
+
+            $(listOfBurgers[i]).find("p.burgerName").prepend(button);
         }
     }
 
