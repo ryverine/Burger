@@ -6,7 +6,7 @@ Created with MySQL, Node, Express, Handlebars and a homemade ORM. Node and MySQL
 
 This is a Node application that is deployed in Heroku so that it can be accessed via a web browser.
 
-I was in terms of the visual theme of the app, I was inspired by a 1970's Burger King.
+In terms of the visual theme of the app, I was inspired by a 1970's Burger King.
 
 ![70s Burger King](/documentation/70s-burger-king.jpg)
 
